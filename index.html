@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Promise You'll Notify demo</title>
+  </head>
+  <body>
+    <script src="dist/bundle.js"></script>
+    <script>
+        (function() {
+            var notificationManager = new NotificationManager();
+            window.createNotification = function() {
+                notificationManager.createNotification({
+                    duration: document.getElementById('duration').value,
+                    text: document.getElementById('text').value,
+                });
+            }
+        })()
+    </script>
+
+    <label>
+        Timeout in ms
+        <input id="duration" type="number" />
+    </label>
+    <label>
+        Text
+        <input id="text" type="text" />
+    </label>
+
+    <button onclick="window.createNotification()">
+        Create a notification
+    </button>
+  </body>
+</html>

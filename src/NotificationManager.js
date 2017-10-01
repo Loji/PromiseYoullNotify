@@ -1,4 +1,6 @@
 import Notification from './Notification';
+import NotificationRenderer from './ReactRenderer';
+import Renderer from './ReactRenderer';
 
 class NotificationManager {
     constructor(
@@ -8,6 +10,7 @@ class NotificationManager {
         this.defaultSettings = defaultSettings;
         this.notificationList = [];
         this.lastId = 0;
+        this.renderer = new Renderer(() => this.closeAllNotifications());
     }
 
     createNotification(settings = this.defaultSettings) {
@@ -16,12 +19,13 @@ class NotificationManager {
         this.notificationList.push(
             new Notification(
                 notificationId,
-                settings, 
-                this._rerenderNotificationList.bind(this),
+                settings,
+                () => this._rerenderNotificationList(),
                 () => this._removeNotification(notificationId),
             ),
         );
-        return true;
+        this._rerenderNotificationList();
+        console.log(this.notificationList);
     }
 
     closeAllNotifications() {
@@ -30,7 +34,7 @@ class NotificationManager {
     }
 
     _rerenderNotificationList() {
-
+        this.renderer.updateList(this.notificationList);
     }
 
     _removeNotification(removedNotificationId) {

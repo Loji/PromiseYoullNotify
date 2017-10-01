@@ -1,1 +1,3 @@
-export { default } from './NotificationManager';
+import NotificationManager from './NotificationManager';
+
+window.NotificationManager = NotificationManager;
