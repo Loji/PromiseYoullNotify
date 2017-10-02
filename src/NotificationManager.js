@@ -20,7 +20,7 @@ class NotificationManager {
             new Notification(
                 notificationId,
                 settings,
-                () => this._rerenderNotificationList(),
+                () => true,
                 () => this._removeNotification(notificationId),
             ),
         );
