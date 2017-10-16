@@ -8,6 +8,9 @@ module.exports = {
         filename: 'bundle.js'
     },
     devtool: debug ? "inline-sourcemap" : null,
+    resolve: {
+        extensions: [".js", ".jsx", ".json"]
+    },
     module: {
         rules: [
             {
