@@ -5,7 +5,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/dist'
     },
     devtool: debug ? "inline-sourcemap" : null,
     resolve: {
@@ -26,6 +27,14 @@ module.exports = {
                     'sass-loader',
                 ]
             },
+            {
+                test: /\.svg$/,
+                exclude: /node_modules/,
+                loader: 'svg-react-loader',
+                query: {
+                    classIdPrefix: '[name]-[hash:8]__',
+                }
+            }
         ],
     },
 };
