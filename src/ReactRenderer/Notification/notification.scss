@@ -1,0 +1,76 @@
+.notification {
+    margin: 0.5em 0;
+    padding: 0.3em 0.5em;
+    overflow: hidden;
+    position: relative;
+
+    svg {
+        width: 1em;
+        height: 1em;
+    }
+
+    button {
+        cursor: pointer;
+        width: 2.5em;
+        height: 2.5em;
+        line-height: 2.5em;
+        text-align: center;
+        background: none;
+        border: none;
+        float: right;
+        border-radius: 100%;
+        transition: all 0.3s ease;
+        background: rgba(0, 0, 0, 0);
+        &:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+.animationBar {
+    position: absolute;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    animation-name: animationBarAnimation;
+    animation-timing-function: ease;
+    @keyframes animationBarAnimation {
+        from {
+            max-width: 400px;
+        }
+        to {
+            max-width: 0px;
+        }
+    }
+}
+
+
+
+
+$normal-color: #fafafa;
+$warning-color: #ffaaaa;
+$success-color: #aaffaa;
+
+.normal {
+    background: $normal-color;
+    .animationBar {
+        background: darken($normal-color, 15);
+    }
+}
+
+.warning {
+    background: $warning-color;
+    .animationBar {
+        background: darken($warning-color, 15);
+    }
+}
+
+.success {
+    background: $success-color;
+    .animationBar {
+        background: darken($success-color, 15);
+    }
+}

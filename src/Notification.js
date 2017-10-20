@@ -2,7 +2,7 @@
 class Notification {
     constructor(
         id = null,
-        settings,
+        settings = {},
         initializedCallback,
         destroyCallback,
     ) {
@@ -13,9 +13,11 @@ class Notification {
         this.settings = settings;
         this.destroyCallback = destroyCallback;
 
-        const duration = settings.duration || 5000;
+        if (!settings.duration) {
+            this.settings.duration = 5000; // default timeout in ms
+        }
 
-        this.timeout = setTimeout(this.onDestroy.bind(this), duration);
+        this.timeout = setTimeout(this.onDestroy.bind(this), settings.duration);
         initializedCallback();
         this.destroy = this.destroy.bind(this);
     }

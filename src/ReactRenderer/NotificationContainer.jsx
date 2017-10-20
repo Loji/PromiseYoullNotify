@@ -1,13 +1,18 @@
-
 import React from 'react';
-import NotificationList from './NotificationList.jsx';
+import PropTypes from 'prop-types';
+import NotificationList from './NotificationList';
 import styles from './notificationContainer.scss';
 
-const NotificationContainer = props =>(
+const NotificationContainer = ({ notificationList, clearNotificationsAction }) => (
     <div className={styles.notificationContainer}>
-        <NotificationList notificationList={props.notificationList} />
-        <button onClick={props.clearNotificationsAction}>Clear notifications</button>
+        <NotificationList notificationList={notificationList} />
+        {notificationList.length > 0 && <button onClick={clearNotificationsAction}>Clear notifications</button>}
     </div>
 );
+
+NotificationContainer.propTypes = {
+    notificationList: PropTypes.array,
+    clearNotificationsAction: PropTypes.func,
+};
 
 export default NotificationContainer;
