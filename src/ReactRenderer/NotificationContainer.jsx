@@ -5,8 +5,10 @@ import styles from './notificationContainer.scss';
 
 const NotificationContainer = ({ notificationList, clearNotificationsAction }) => (
     <div className={styles.notificationContainer}>
+        {notificationList.length > 1 && (
+            <button onClick={clearNotificationsAction} className={styles.closeAll}>Close all</button>
+        )}
         <NotificationList notificationList={notificationList} />
-        {notificationList.length > 0 && <button onClick={clearNotificationsAction}>Clear notifications</button>}
     </div>
 );
 

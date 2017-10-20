@@ -6,3 +6,22 @@
     width: 100%;
     padding: 2rem;
 }
+
+$closeAll-color: #222;
+$closeAll-bg: #eee;
+
+.closeAll {
+    width: 100%;
+    margin: 0.5em 0;
+    padding: 0.8em 0.5em;
+    color: $closeAll-color;
+    background: $closeAll-bg;
+    cursor: pointer;
+    border: 0;
+    display: block;
+    transition: all 0.3s ease;
+    &:hover {
+        color: lighten($closeAll-color, 95);
+        background: darken($closeAll-bg, 25);
+    }
+}
