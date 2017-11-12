@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>Promise You'll Notify demo</title>
-  </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
   <body>
     <script src="./dist/bundle.js"></script>
     <script>
@@ -19,25 +20,32 @@
         })()
     </script>
 
-    <label>
-        Timeout in ms
-        <input id="duration" type="number" />
-    </label>
-    <label>
-        Text
-        <input id="text" type="text" />
-    </label>
-    <label>
-        Notification type
-        <select id="type">
-            <option value="normal">Normal</option>
-            <option value="success">Success</option>
-            <option value="warning">Warning</option>
-        </select>
-    </label>
-
-    <button onclick="window.createNotification()">
-        Create a notification
-    </button>
+    <div class="container">
+        <div class="form-group">
+            <label>
+                Timeout in ms
+                <input id="duration" type="number" value="10000" class="form-control" />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Text
+                <input id="text" type="text" class="form-control" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed orci aliquam, consectetur velit eu, accumsan sem." />
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                Notification type
+                <select id="type" class="form-control">
+                    <option value="normal" selected>Normal</option>
+                    <option value="success">Success</option>
+                    <option value="warning">Warning</option>
+                </select>
+            </label>
+        </div>
+        <button onclick="window.createNotification()" class="btn btn-primary">
+            Create a notification
+        </button>
+    </div>
   </body>
 </html>

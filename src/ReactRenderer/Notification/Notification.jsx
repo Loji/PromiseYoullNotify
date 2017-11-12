@@ -4,10 +4,12 @@ import CloseIcon from './close.svg';
 
 export const Notification = props => (
     <div className={`${styles.notification} ${styles[props.settings.type]}`}>
-        {props.settings.text}
-        <button onClick={props.destroy}>
-            {<CloseIcon />}
-        </button>
+        <div className={styles.notificationContent}>
+            <div className={styles.text}>{props.settings.text}</div>
+            <button onClick={props.destroy}>
+                {<CloseIcon />}
+            </button>
+        </div>
         <div
             style={{
                 animationDuration: `${props.settings.duration}ms`,
