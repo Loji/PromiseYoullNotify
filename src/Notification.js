@@ -2,13 +2,14 @@
 class Notification {
     constructor(
         id = null,
-        settings = {},
-        initializedCallback,
+        settings,
+        initializedCallback = () => {},
         destroyCallback,
     ) {
         if(!settings) {
             throw new Error('You have to provide settings');
         }
+
         this.id = id;
         this.settings = settings;
         this.destroyCallback = destroyCallback;
