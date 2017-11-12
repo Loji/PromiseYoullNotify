@@ -1,3 +1,3 @@
 import NotificationManager from './NotificationManager';
 
-window.NotificationManager = NotificationManager;
+export default NotificationManager;
