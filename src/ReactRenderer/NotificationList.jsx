@@ -2,7 +2,9 @@ import React from 'react';
 import Notification from './Notification';
 
 const NotificationList = props => (
-    props.notificationList.map(el => <Notification {...el} key={el.id} />)
+    <div>
+        {props.notificationList.map(el => <Notification {...el} key={el.id} />)}
+    </div>
 );
 
 export default NotificationList;

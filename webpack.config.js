@@ -2,10 +2,14 @@ const path = require('path');
 const debug = process.env.NODE_ENV !== "production";
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        bundle: './src/index.js',
+        example: './src/example.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: '[name].js',
+        chunkFilename: '[id].chunk.js',
         publicPath: '/dist',
         library: 'promiseyoullnotify',
         libraryTarget: 'umd',
