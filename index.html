@@ -17,6 +17,27 @@
                     type: document.getElementById('type').value,
                 });
             }
+            window.createDemoNotifications = function() {
+                const notifications = [
+                    {
+                        duration: 60000,
+                        text: 'Success!',
+                        type: 'success',
+                    },
+                    {
+                        duration: 60000,
+                        text: 'Normal!',
+                        type: 'normal',
+                    },
+                    {
+                        duration: 60000,
+                        text: 'Warning!',
+                        type: 'warning',
+                    },
+                ];
+
+                notifications.forEach(notificationManager.createNotification.bind(notificationManager));
+            }
         })()
     </script>
 
@@ -30,7 +51,7 @@
         <div class="form-group">
             <label>
                 Text
-                <input id="text" type="text" class="form-control" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed orci aliquam, consectetur velit eu, accumsan sem." />
+                <input id="text" type="text" class="form-control" value="I'm a notification." />
             </label>
         </div>
         <div class="form-group">
@@ -43,8 +64,11 @@
                 </select>
             </label>
         </div>
-        <button onclick="window.createNotification()" class="btn btn-primary">
+        <button onclick="window.createNotification()" class="btn btn-primary" style="cursor: pointer">
             Create a notification
+        </button>
+        <button onclick="window.createDemoNotifications()" class="btn" style="cursor: pointer">
+            Spawn demo notifications
         </button>
     </div>
   </body>

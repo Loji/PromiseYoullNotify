@@ -35,6 +35,7 @@
 
     .text {
         flex-grow: 1;
+        padding: 0.4em 0.4em;
     }
 }
 
@@ -58,27 +59,30 @@
     }
 }
 
-$normal-color: #fafafa;
+$normal-color: #f0f0f0;
 $warning-color: #ffaaaa;
 $success-color: #aaffaa;
+
+$saturation-factor: 35;
+$darken-factor: 45;
 
 .normal {
     background: $normal-color;
     .animationBar {
-        background: darken($normal-color, 15);
+        background: darken(desaturate($normal-color, $saturation-factor), $darken-factor);
     }
 }
 
 .warning {
     background: $warning-color;
     .animationBar {
-        background: darken($warning-color, 15);
+        background: darken(desaturate($warning-color, $saturation-factor), $darken-factor);
     }
 }
 
 .success {
     background: $success-color;
     .animationBar {
-        background: darken($success-color, 15);
+        background: darken(desaturate($success-color, $saturation-factor), $darken-factor);
     }
 }
