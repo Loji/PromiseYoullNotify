@@ -17,6 +17,9 @@ class Notification {
         if (!settings.duration) {
             this.settings.duration = 5000; // default timeout in ms
         }
+        if (!settings.params) {
+            this.settings.params = {};
+        }
 
         this.timeout = setTimeout(this.onDestroy.bind(this), settings.duration);
         initializedCallback();
